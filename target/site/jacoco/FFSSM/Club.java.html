@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Club.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FFSSM_Enonce</a> &gt; <a href="index.source.html" class="el_package">FFSSM</a> &gt; <span class="el_source">Club.java</span></div><h1>Club.java</h1><pre class="source lang-java linenums">/**
+ * @(#) Club.java
+ */
+package FFSSM;
+
+import static java.lang.reflect.Array.set;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+public class Club {
+
+ 
+    public Moniteur president;
+
+    public String nom;
+
+    public String adresse;
+
+    public String telephone;
+    
+<span class="fc" id="L23">    public List&lt;Plongee&gt; myPlongee= new LinkedList&lt;&gt;();</span>
+
+<span class="fc" id="L25">    public Club(Moniteur président, String nom, String telephone) {</span>
+<span class="fc" id="L26">        this.president = président;</span>
+<span class="fc" id="L27">        this.nom = nom;</span>
+<span class="fc" id="L28">        this.telephone = telephone;</span>
+<span class="fc" id="L29">    }</span>
+
+    public Set&lt;Plongee&gt; plongeesNonConformes() {
+<span class="fc" id="L32">        Set&lt;Plongee&gt; plongeenonconf = new HashSet&lt;&gt;(); </span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for( Plongee p : myPlongee){</span>
+<span class="fc" id="L34">			plongeenonconf.add(p);</span>
+<span class="fc" id="L35">		}</span>
+
+<span class="fc" id="L37">		return plongeenonconf;</span>
+        }
+    
+
+    public void organisePlongee(Plongee p) {
+<span class="fc" id="L42">         myPlongee.add(p);</span>
+<span class="fc" id="L43">    }</span>
+    
+    
+    public Moniteur getPresident() {
+<span class="nc" id="L47">        return president;</span>
+    }
+
+    public void setPresident(Moniteur président) {
+<span class="nc" id="L51">        this.president = président;</span>
+<span class="nc" id="L52">    }</span>
+
+    public String getNom() {
+<span class="nc" id="L55">        return nom;</span>
+    }
+
+    public void setNom(String nom) {
+<span class="nc" id="L59">        this.nom = nom;</span>
+<span class="nc" id="L60">    }</span>
+
+    public String getAdresse() {
+<span class="nc" id="L63">        return adresse;</span>
+    }
+
+    public void setAdresse(String adresse) {
+<span class="nc" id="L67">        this.adresse = adresse;</span>
+<span class="nc" id="L68">    }</span>
+
+    public String getTelephone() {
+<span class="nc" id="L71">        return telephone;</span>
+    }
+
+    public void setTelephone(String telephone) {
+<span class="nc" id="L75">        this.telephone = telephone;</span>
+<span class="nc" id="L76">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L80">        return &quot;Club{&quot; + &quot;président=&quot; + president + &quot;, nom=&quot; + nom + &quot;, adresse=&quot; + adresse + &quot;, telephone=&quot; + telephone + '}';</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Plongee.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FFSSM_Enonce</a> &gt; <a href="index.source.html" class="el_package">FFSSM</a> &gt; <span class="el_source">Plongee.java</span></div><h1>Plongee.java</h1><pre class="source lang-java linenums">/**
+ * @(#) Plongee.java
+ */
+package FFSSM;
+
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+public class Plongee {
+
+    public Site lieu;
+
+    public Moniteur chefDePalanquee;
+
+    public Calendar date;
+
+    public int profondeur;
+
+    public int duree;
+
+<span class="fc" id="L24">    public List&lt;Plongeur&gt; myPlongeur = new LinkedList&lt;&gt;();</span>
+
+<span class="fc" id="L26">    public Plongee(Site lieu, Moniteur chefDePalanquee, Calendar date, int profondeur, int duree) {</span>
+<span class="fc" id="L27">        this.lieu = lieu;</span>
+<span class="fc" id="L28">        this.chefDePalanquee = chefDePalanquee;</span>
+<span class="fc" id="L29">        this.date = date;</span>
+<span class="fc" id="L30">        this.profondeur = profondeur;</span>
+<span class="fc" id="L31">        this.duree = duree;</span>
+<span class="fc" id="L32">    }</span>
+
+    public void ajouteParticipant(Plongeur participant) {
+<span class="fc" id="L35">        myPlongeur.add(participant);</span>
+<span class="fc" id="L36">    }</span>
+
+    public Calendar getDate() {
+<span class="nc" id="L39">        return date;</span>
+    }
+
+    public boolean estConforme() {
+<span class="fc" id="L43">        Calendar d = Calendar.getInstance();</span>
+<span class="fc" id="L44">            d.set(2018,11,30);</span>
+        //if(myPlongeur == null)
+        //    new throws IllegalArgumentException(&quot;pas de participant&quot;);
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        for (Plongeur p1 : myPlongeur) {</span>
+
+<span class="fc bfc" id="L49" title="All 2 branches covered.">            for (Licence L1 : p1.myLicence) {</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">                if (L1.estValide(d)) {</span>
+<span class="fc" id="L51">                    return true;</span>
+
+                }
+
+<span class="fc" id="L55">            }</span>
+
+<span class="fc" id="L57">        }</span>
+<span class="fc" id="L58">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
